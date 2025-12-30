@@ -47,15 +47,18 @@ You will:
 2. Enable Microsoft Teams Bot permissions
 
 3. Use Node.js SDK:
-   npm install @microsoft/microsoft-graph-client
+   npm install @microsoft/microsoSft-graph-client
    What it enables:
     Join meeting as bot
     Receive raw audio stream
     Pass audio chunks to your AI service
    This is the ideal long-term.
 
-APPROACH 2 (EASY MVP): Playwright Automation
+APPROACH 2 (EASY MVP):
+
+Playwright Automation
 This is easier for V1.
+
 You create a dedicated MS Teams account, then:
  Use Playwright to open Teams Web
  Auto-login using saved cookies
@@ -70,6 +73,7 @@ It works TODAY, no approvals needed.
 
 STEP 2 — Real-Time Speech to Text
 Recommended: Whisper API (OpenAI)
+
 Example:
 import OpenAI from &quot;openai&quot;;
 import fs from &quot;fs&quot;;
@@ -78,6 +82,7 @@ const transcription = await openai.audio.transcriptions.create({
 file: fs.createReadStream(&quot;audio.wav&quot;),
 model: &quot;whisper-1&quot;
 });
+
 But you need real-time, so you send small chunks every few seconds.
 Better option for LIVE:
 AssemblyAI Real-Time Streaming
